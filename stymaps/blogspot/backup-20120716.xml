@@ -20,7 +20,7 @@ URL:      www.stopdesign.com
 Date:     26 Feb 2004
 Updated by: Blogger Team w/Many additional...
 Updates by: Revlin John - stylogicalmaps@gmail.com
-(Note: The rules under my comment are only a portion 
+(Note: The rules under my comment are only a portion
 of the total edits I&#39;ve made to this stylesheet
 - Rev)
 ----------------------------------------------- */
@@ -352,7 +352,7 @@ var canvasApp={}, drawLoop={}, drawVideo={};
 var aplayed=0, vplayed=0, adrawing=false, vdrawing=false;
 var recordGIF={};
 
-$(function () { 
+$(function () {
 if (typeof window.addEventListener === 'function') {
   window.addEventListener("load", function init_page() {
 
@@ -392,11 +392,11 @@ if (typeof window.addEventListener === 'function') {
 }
 });
 
-/* Processing Initializer: 
+/* Processing Initializer:
 * Swiped from https://github.com/annasob/processing-js
 * This code searches for all the &lt;script type="application/processing" target="canvasid"&gt;
 * in your page and loads each script in the target canvas with the proper id.
-* It is useful to smooth the process of adding Processing code in your page 
+* It is useful to smooth the process of adding Processing code in your page
 * and starting the Processing.js engine.
 */
 var p_offset = -424;
@@ -424,12 +424,12 @@ function init_processing() {
                 }
               }
             }
-          } else {   
+          } else {
             if (canvasArray.length >= j) {
               processing = new Processing(canvasArray[j], scripts[i].text);
             }
             j++;
-          }      
+          }
         }
       }
     }, false);
@@ -443,7 +443,7 @@ function init_processing() {
 <script type='text/javascript'>
 var icanvas;
 var vframe;
-$(function () { 
+$(function () {
 window.onload = function init_page() {
 
   if (typeof document.getElementById("cv").getContext !== "function") {
@@ -470,7 +470,7 @@ if (window.jstiming) window.jstiming.load.tick('headEnd');
 
 </head>
 
-<body> 
+<body>
   
   <div id='outer-wrapper'><div id='wrap2'>
 
@@ -498,7 +498,7 @@ if (window.jstiming) window.jstiming.load.tick('headEnd');
          <iframe frameborder='0' height='432' id='canvas_iframe' width='768'/>
        </canvas>
        <br/>
-       <div id='postnavlinks'/> 
+       <div id='postnavlinks'/>
      </div>
      <p class='menulinkleft' style='position:relative; margin-top: -2px;'><a href='http://universalsoldier.ca/lovedemands'>universalsoldier.ca/lovedemands</a></p>
      <p class='menulinkright' style='position:relative; margin-top: -2px;'><a href='http://stylogicalmaps.blogspot.com'>stylogicalmaps.blogspot.com</a></p>
@@ -1416,7 +1416,7 @@ if (window.jstiming) window.jstiming.load.tick('headEnd');
 
   </div></div> <!-- end outer-wrapper -->
 
-<p id='license' style='text-align:center;'>Published 2011-2012 Creative Commons Attribution-NonCommercial-ShareAlike 2.5 Canada <a href='http://creativecommons.org/licenses/by-nc-sa/2.5/deed.en' target='_blank'>(CC BY-NC-SA 2.5)</a></p>
+<p id='license' style='text-align:center;'>Published 2009-2020 Creative Commons Attribution-NonCommercial-ShareAlike 2.5 Canada <a href='http://creativecommons.org/licenses/by-nc-sa/2.5/deed.en' target='_blank'>(CC BY-NC-SA 2.5)</a></p>
 
 <script src='http://universalsoldier.ca/jsgif/LZWEncoder.js' type='text/javascript'/>
 <script src='http://universalsoldier.ca/jsgif/NeuQuant.js' type='text/javascript'/>

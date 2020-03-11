@@ -20,7 +20,7 @@ URL:      www.stopdesign.com
 Date:     26 Feb 2004
 Updated by: Blogger Team w/Many additional...
 Updates by: Revlin John - stylogicalmaps@gmail.com
-(Note: The rules under my comment are only a portion 
+(Note: The rules under my comment are only a portion
 of the total edits I&#39;ve made to this stylesheet
 - Rev)
 ----------------------------------------------- */
@@ -351,8 +351,8 @@ h2.date-header {
 
 <!-- Page Init Scripts -->
 <script language='javascript' type='text/javascript'> //<![CDATA[
-/* Onload: */ 
-var aplayed=0, vplayed=0, adrawing=false, vdrawing=false; 
+/* Onload: */
+var aplayed=0, vplayed=0, adrawing=false, vdrawing=false;
 var canvasApp=[], drawLoop=[], drawVideo=[];
 var recordGIF={};
 var init_page = function init_page() {
@@ -398,17 +398,17 @@ var init_page = function init_page() {
     
   };
 
-$(function () { 
+$(function () {
   if (typeof window.addEventListener === 'function') {
     window.addEventListener("load", init_page, false);
   }
 });
 
-/* Processing Initializer: 
+/* Processing Initializer:
 * Swiped from https://github.com/annasob/processing-js
 * This code searches for all the &lt;script type="application/processing" target="canvasid"&gt;
 * in your page and loads each script in the target canvas with the proper id.
-* It is useful to smooth the process of adding Processing code in your page 
+* It is useful to smooth the process of adding Processing code in your page
 * and starting the Processing.js engine.
 */
 var p_offset = -428;
@@ -438,13 +438,13 @@ function init_processing() {
                 }
               }
             }
-          } else {   
+          } else {
             if (canvasArray.length >= j) {
               processing = new Processing(canvasArray[j], scripts[i].text);
               //alert("Processing started");
             }
             j++;
-          }      
+          }
         }
       }
     }, false);
@@ -475,7 +475,7 @@ var initPage = function initPage() {
 
 };
 
-$(function () { 
+$(function () {
 window.onload = initPage;
 });
 
@@ -557,7 +557,7 @@ head.appendChild(script);
        </canvas>
        <canvas height='270' id='can23' style='image-rendering:optimizespeed ! important;' width='480'/>
        <br/>
-       <div id='postnavlinks'/> 
+       <div id='postnavlinks'/>
      </div>
      <p class='menulinkleft' style='position:relative; margin-top: -2px;'><a href='http://lovedemands.universalsoldier.ca'>lovedemands.universalsoldier.ca</a></p>
      <p class='menulinkright' style='position:relative; margin-top: -2px;'><a href='http://stylogicalmaps.blogspot.com'>stylogicalmaps.blogspot.com</a></p>
@@ -1479,7 +1479,7 @@ head.appendChild(script);
 
   </div></div> <!-- end outer-wrapper -->
 
-<p id='license' style='text-align:center;'>Published 2011-2012 Creative Commons Attribution-NonCommercial-ShareAlike 2.5 Canada <a href='http://creativecommons.org/licenses/by-nc-sa/2.5/deed.en' target='_blank'>(CC BY-NC-SA 2.5)</a></p>
+<p id='license' style='text-align:center;'>Published 2009-2020 Creative Commons Attribution-NonCommercial-ShareAlike 2.5 Canada <a href='http://creativecommons.org/licenses/by-nc-sa/2.5/deed.en' target='_blank'>(CC BY-NC-SA 2.5)</a></p>
 
 <script src='http://universalsoldier.ca/stymaps/mapscripts.js' type='text/javascript'/>
 </body>

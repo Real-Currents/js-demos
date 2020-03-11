@@ -20,7 +20,7 @@ URL:      www.stopdesign.com
 Date:     26 Feb 2004
 Updated by: Blogger Team w/Many additional...
 Updates by: Revlin John - stylogicalmaps@gmail.com
-(Note: The rules under my comment are only a portion 
+(Note: The rules under my comment are only a portion
 of the total edits I&#39;ve made to this stylesheet
 - Rev)
 ----------------------------------------------- */
@@ -482,14 +482,14 @@ div.no_html5 {
 }
 
 div#hotkeys {
-  margin-top:0; 
-  padding-top:0; 
+  margin-top:0;
+  padding-top:0;
 }
 
 div#hotkeys * {
   margin-top:0;
-  margin-bottom:0; 
-  padding-top:0; 
+  margin-bottom:0;
+  padding-top:0;
 }
 
 #greader {
@@ -535,7 +535,7 @@ var gif_time = 32;
 var Debugger = function Debugger() {};
 Debugger.log = function (message) {
     try {
-      console.log(message); 
+      console.log(message);
     } catch (e) {
       //alert(message);
     }
@@ -543,7 +543,7 @@ Debugger.log = function (message) {
 
 /* Onload: */
 
-$(function () { 
+$(function () {
 if (typeof window.addEventListener === 'function') {
   window.addEventListener("load", function init_page() {
 
@@ -686,7 +686,7 @@ canvasApp = function canvasApp () {
     c.moveTo(x + r*Math.sin(angle),
              y - r*Math.cos(angle));
     var delta = 2*Math.PI/n;
-    //For remaining verts, 
+    //For remaining verts,
     for (var i=1; i < n; i++) {
       //compute angle of this vertex,
       angle += counterclockwise ? -delta : delta;
@@ -712,8 +712,8 @@ canvasApp = function canvasApp () {
     var numVids = videos.length;
     drawLoop = setInterval(draw,33,context,canvas.width,canvas.height,videos);
     Debugger.log("Draw loop started");
-  } catch(e) { 
-    Debugger.log("drawLoop failed to start"); 
+  } catch(e) {
+    Debugger.log("drawLoop failed to start");
     return;
   }
 };
@@ -757,7 +757,7 @@ window.onload = function init_page() {
 
 <!-- Processing.js Header -->
 <script language='javascript' type='text/javascript'> //<![CDATA[
-/* Processing Initializer: 
+/* Processing Initializer:
 * Swiped from https://github.com/annasob/processing-js
 * This code searches for all the <script type="application/processing" target="canvasid">
 * in your page and loads each script in the target canvas with the proper id.
@@ -789,12 +789,12 @@ function init_processing() {
                 }
               }
             }
-          } else {   
+          } else {
             if (canvasArray.length >= j) {
               processing = new Processing(canvasArray[j], scripts[i].text);
             }
             j++;
-          }      
+          }
         }
       }
     }, false);
@@ -834,7 +834,7 @@ function pause_video(video_id) {
             videoA.pause();
             vdrawing = false;
           }
-          clearInterval(vPause);  
+          clearInterval(vPause);
         }
       }, 33);
   }
@@ -849,8 +849,8 @@ var loop_video = function (video_id, loop) {
       var videoB = document.getElementById(curr_vid);
       if (typeof videoB.pause === "function") {
         videoB.pause();
-     } 
-    } 
+     }
+    }
   } catch(err) {}
   if (typeof videoA.play === "function") {
     curr_vid = videoA.id;
@@ -867,7 +867,7 @@ var loop_video = function (video_id, loop) {
         }
       }, 66);
     videoA.play();
-    videoA.addEventListener('ended', function(){ 
+    videoA.addEventListener('ended', function(){
       if (bloop !== 'true') {
         this.volume = 0;
         resumeSong();
@@ -884,7 +884,7 @@ var loop_video = function (video_id, loop) {
 
 var loop_AB = function (video_id, t1, t2) {
   volume_video(video_id, 1.0);
-  var videoA = document.getElementById(video_id); 
+  var videoA = document.getElementById(video_id);
   if (typeof videoA.currentTime === "number") {
     curr_vid = videoA.id;
     videoA.volume = 0.0;
@@ -903,11 +903,11 @@ var loop_AB = function (video_id, t1, t2) {
     if (processing !== 'undefined') {
       processing.noLoop();
     }
-    videoA.addEventListener('ended', function(){ 
+    videoA.addEventListener('ended', function(){
       this.volume = 0;
       this.currentTime = 0;
     }, false);
-  }   
+  }
 };
 
 function mute_video(video_id) {
@@ -942,7 +942,7 @@ var drawVideo = function (v,c,x,y,w,h) {
           vdrawing = true;
         } catch (err) {
           Debugger.log("Failed to draw " + v[vi].id);
-        } 
+        }
       } else if (!(vi > 0)) {
         c.clearRect(0, 0, w, h);
       }
@@ -981,7 +981,7 @@ var set_aspect = function (rx, ry) {
         c.drawImage(v, vx, y, vid1w, vid1h);
       } catch (err) {
         Debugger.log("Failed to draw " + v.id);
-      } 
+      }
     }
   };
 };
@@ -1082,7 +1082,7 @@ function resumeSong() {
         setTimeout(raiseVolume, 30, songX);
       }
     }
-  } catch(err) {  
+  } catch(err) {
     //var msg = "Volume stuck at " + songX.volume + "";
   }
 }
@@ -1104,7 +1104,7 @@ function muteSong() {
 }
 
 function playSong(song_id2) {
-  if(curr_song == song_id2) { 
+  if(curr_song == song_id2) {
     var songA = document.getElementById(song_id2);
     if (typeof songA.currentTime === "number" ) {
       songA.currentTime = 0;
@@ -1125,7 +1125,7 @@ function playSong(song_id2) {
   }
 }
 
-function jogSong(song_id3, stime) { 
+function jogSong(song_id3, stime) {
   var songJ = document.getElementById(song_id3);
   ct = songJ.currentTime;
   try {
@@ -1299,7 +1299,7 @@ var post_scroller = {
       var arep = document.createElement('span');
       var elp = document.createElement('span');
       elp.innerHTML="&nbsp;...&nbsp;";
-        
+      
       for (var i = adiv.children.length; i > 0; i -= 1) {
         var child = adiv.children[(i-1)];
         switch (child.tagName) {
@@ -1569,7 +1569,7 @@ if (window.jstiming) window.jstiming.load.tick('headEnd');
 
 </head>
 
-<body> 
+<body>
   
   <div id='outer-wrapper'><div id='wrap2'>
 
@@ -1597,7 +1597,7 @@ if (window.jstiming) window.jstiming.load.tick('headEnd');
          <iframe frameborder='0' height='432' id='canvas_iframe' src='http://www.youtube.com/embed/tIDY-FYbBfE?autoplay=1' width='768'/>
        </canvas>
        <br/>
-       <div id='postnavlinks'/> 
+       <div id='postnavlinks'/>
      </div>
      <p class='menulinkleft' style='position:relative; margin-top: -2px;'><a href='http://love-demands.blogspot.com/'>love-demands.blogspot.com</a></p>
      <p class='menulinkright' style='position:relative; margin-top: -2px;'><a href='http://stylogicalmaps.blogspot.com'>stylogicalmaps.blogspot.com</a></p>
@@ -2523,7 +2523,7 @@ if (window.jstiming) window.jstiming.load.tick('headEnd');
 
   </div></div> <!-- end outer-wrapper -->
 
-<p id='license' style='text-align:center;'>Published 2011-2012 Creative Commons Attribution-NonCommercial-ShareAlike 2.5 Canada <a href='http://creativecommons.org/licenses/by-nc-sa/2.5/deed.en' target='_blank'>(CC BY-NC-SA 2.5)</a></p>
+<p id='license' style='text-align:center;'>Published 2009-2020 Creative Commons Attribution-NonCommercial-ShareAlike 2.5 Canada <a href='http://creativecommons.org/licenses/by-nc-sa/2.5/deed.en' target='_blank'>(CC BY-NC-SA 2.5)</a></p>
 </body>
 
 </html>

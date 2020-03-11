@@ -17,7 +17,7 @@
 var canvasApp=[], drawLoop=[], drawVideo=[], recordGIF={};
 var aplayed=0, vplayed=0, adrawing=false, vdrawing=false;
 
-$(function () { 
+$(function () {
 if (typeof window.addEventListener === 'function') {
   window.addEventListener("load", function init_page() {
     //alert('Start canvasApp');
@@ -32,11 +32,11 @@ if (typeof window.addEventListener === 'function') {
 }
 });
 
-/* Processing Initializer: 
+/* Processing Initializer:
 * Swiped from https://github.com/annasob/processing-js
 * This code searches for all the &lt;script type="application/processing" target="canvasid"&gt;
 * in your page and loads each script in the target canvas with the proper id.
-* It is useful to smooth the process of adding Processing code in your page 
+* It is useful to smooth the process of adding Processing code in your page
 * and starting the Processing.js engine.
 */
 var processing = {};
@@ -65,13 +65,13 @@ function init_processing() {
                 }
               }
             }
-          } else {   
+          } else {
             if (canvasArray.length >= j) {
               processing = new Processing(canvasArray[j], scripts[i].text);
               //alert("Processing started");
             }
             j++;
-          }      
+          }
         }
       }
     }, false);
@@ -86,8 +86,8 @@ function init_processing() {
        <canvas id='cv' width='640' height='360'>
          <div id='main-header'>
            <h1>The Stylogical Map</h1>
-           <h4>A presentation of various works-in-progress, 
-           <br/>exploring the omni-media vortex of 
+           <h4>A presentation of various works-in-progress,
+           <br/>exploring the omni-media vortex of
            <br/>space, time, love, and perception.</h4>
          </div>
        </canvas>
@@ -102,7 +102,7 @@ function init_processing() {
     <p id="vstatus"></p>
 	<p id="license" style="color:#fff">
 		<img src="http://i.creativecommons.org/l/by-sa/3.0/nz/88x31.png" alt="Creative Commons Licence"><br />
-		<em>These demos by <a href="mailto:revlin@uni-sol.org">Revlin John </a> are licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/nz/deed.en_GB">Creative Commons Attribution-ShareAlike 3.0 License, 2009-2012 </a></em>
+		<em>These demos by <a href="mailto:revlin@uni-sol.org">Revlin John </a> are licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/nz/deed.en_GB">Creative Commons Attribution-ShareAlike 3.0 License, 2009-2020 </a></em>
 	</p>
 
 	<div id="stream">
@@ -120,4 +120,4 @@ function init_processing() {
 <script type='text/javascript' src='scripts/mapscripts.js'></script>
 
   </body>
-</html> 
+</html>
