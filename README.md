@@ -1,8 +1,9 @@
 js-demos
 ========
 
-<canvas id="fathers" width="1280" height="720"  style="display: inline-block; image-rendering:optimizespeed ! important;">
+<canvas id="fathers" width="720" height="480"  style="image-rendering:optimizespeed ! important; width: 480px; height: 360px;">
 </canvas>
+<br />
 <a id="aud1_play" href="#" onclick="(function(evt) { playVideo(); aud1.currentTime=0; aud1.muted=false; evt.target.innerHTML='Now Playing'; userTriggered=true; } (event));" style="text-align: center">Play</a>
 
 These are some very loosely organized experiments, for the purpose of improving my understanding.
@@ -69,20 +70,54 @@ Here's an equally loose index of what can be viewed online:
 (comparing use of 'this' v.s. vars within methods; partially based on code from 'JavaScript Enlightenment' by C. Lindley, 2012)
 
 
-<h1 id="text_title"></h1>
-<p id="text_copy" style="display:none;"></p>
+<h1 id="text_title" style="display:none;">Fathers</h1>
+
+<p id="text_copy" style="display:none;">
+Don't Give Up
+
+On Yourself
+
+On Your Dreams
+
+This is the moment
+
+Your power has never been greater
+
+Your priviledge has never stood higher
+
+Your influence is without measure
+
+Only your fear
+
+Only your lost spirit
+
+Can keep you from the promised land
+
+The land of your ancestors
+
+The land of your children
+
+Where you would join them
+
+If you would lead and follow
+
+As your heart demands
+</p>
 
 <div id="stream" style="display:none; text-align:center">
-<video id="aud1" preload="auto" muted="true" controls="true">
-<source src="https://s3-us-west-1.amazonaws.com/real-currents/js-demos/video/fathers.mp4" />
-<source src="https://s3-us-west-1.amazonaws.com/real-currents/js-demos/video/fathers.ogv" />
+<video id="aud1" poster="/js-demos/images/fathers.jpg" preload="auto" muted="true" controls="true">
+<source src="/js-demos/video/fathers.mp4" />
+<source src="/js-demos/video/fathers.ogv" />
 </video>
 </div>
 
 <p id="vstatus"></p>
+
 <p id="license" style="color:#fff">
 <img src="http://i.creativecommons.org/l/by-sa/3.0/nz/88x31.png"  style="width: 88px;" alt="Creative Commons Licence"><br />
 <em>These demos by <a href="mailto:john@real-currents.com">John</a> are licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/nz/deed.en_GB">Creative Commons Attribution-ShareAlike 3.0 License, 2009-2020</a></em>
 </p>
 
 <script type="text/javascript" id="cvSrc" src="/js-demos/scripts/interact-visualizer.js"></script>
+
+<script type="text/javascript" id="fathersSrc" src="/js-demos/scripts/inner-video-cube.js"></script>
