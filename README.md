@@ -1,7 +1,7 @@
 js-demos
 ========
 
-<canvas id='fathers' width='1280' height='720'  style="display: inline-block; image-rendering:optimizespeed ! important;">
+<canvas id="fathers" width="1280" height="720"  style="display: inline-block; image-rendering:optimizespeed ! important;">
 </canvas>
 <a id="aud1_play" href="#" onclick="(function(evt) { playVideo(); aud1.currentTime=0; aud1.muted=false; evt.target.innerHTML='Now Playing'; userTriggered=true; } (event));" style="text-align: center">Play</a>
 
