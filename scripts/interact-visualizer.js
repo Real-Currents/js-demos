@@ -312,7 +312,7 @@ if( appStarted ) return appStarted;
             Debugger.on = false;
         }
 
-        Debugger.log( "time: "+ time );
+        // Debugger.log( "time: "+ time );
     }
 
 	ctx.globalCompositeOperation = "source-over";
@@ -404,7 +404,6 @@ if( appStarted ) return appStarted;
 
   /* Graph samples */
   function graphSamples( ctx, audio, abuf, fbuf, vbuf, aidx, w, h, o ) {
-
 	try {
 		if( abuf.length < 1 ) return aidx;
 		if( audio.paused ) return aidx;
@@ -430,13 +429,14 @@ if( appStarted ) return appStarted;
 		} else ctx.moveTo( 0, -(abuf[parseInt(idx + o)][0]*2*hcorrect) + hcorrect  );
 
 		var verts = 6,
-			hidx = parseInt(idx + o);
+        hidx = parseInt(idx + o);
 
 		ctx.beginPath();
-        if( aidx%6 ) canvasApp.blockStyle = (window['foreground02']) ? window['foreground02'].style.color : "hsl(180, 100%, 100%)";
-        else canvasApp.blockStyle = (window['foreground03']) ? window['foreground03'].style.color : "hsl(180, 100%, 100%)";
+		if( aidx%6 ) canvasApp.blockStyle = (window['foreground02']) ? window['foreground02'].style.color : "hsl(180, 100%, 100%)";
+		else canvasApp.blockStyle = (window['foreground03']) ? window['foreground03'].style.color : "hsl(180, 100%, 100%)";
 
-        ctx.fillStyle = canvasApp.blockStyle.replace(/,\s?0\.\d+\)/, ",1.0)");
+		ctx.fillStyle = canvasApp.blockStyle.replace(/,\s?0\.\d+\)/, ",1.0)");
+
 		for( var i=0, z=abuf[hidx].length, n=z; i<z; i++ ) {
 			/* Draw a curve of the amplitude data */
 			if( i > 0 ) {
@@ -511,7 +511,7 @@ if( appStarted ) return appStarted;
   /* Begin draw loop */
   try {
     var context = canvas.getContext('2d');
-	time = 0;
+    time = 0;
     drawLoop = setInterval(draw, 31, context, canvas.width, canvas.height);
     Debugger.log("Draw loop started");
 	appStarted = true;
