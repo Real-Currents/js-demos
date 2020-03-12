@@ -4,7 +4,7 @@ js-demos
 <canvas id="fathers" width="1280" height="720" style="image-rendering: optimizespeed !important; width: 640px; height: 360px; margin-left: -80px;">
 </canvas>
 <br />
-<div style="text-align: center" onclick="(function(evt) { playVideo(); aud1.currentTime=0; aud1.muted=false; evt.target.innerHTML='Now Playing'; userTriggered=true; var control=window.document.querySelector('div#control'); control.innerHTML='Hide Control'; control.onclick=''} (event));">
+<div style="text-align: center" onclick="(function(evt) { playVideo(); aud1.currentTime=0; aud1.muted=false; evt.target.innerHTML='Now Playing'; userTriggered=true; var control=window.document.querySelector('div#control'); control.onclick=''; control.children[0].innerHTML='Hide Control'; } (event));">
 <a id="aud1_play" href="#">Play</a>
 </div>
 
