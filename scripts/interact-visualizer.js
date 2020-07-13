@@ -15,7 +15,7 @@ statsBox.style.color = "#FFFFFF";
 statsBox.style.textAlign = "center";
 statsBox.innerHTML = ( location.pathname.match(/(\.html)/)!==null )?
 	'<img src="images/bw-loader.gif" /><br />Loading... ':
-	'<img src="/js-demos/images/bw-loader.gif" /><br />Loading... ';
+	'<img src="js-demos/images/bw-loader.gif" /><br />Loading... ';
 
 var canvasApp = function canvasApp(cv) {
 
