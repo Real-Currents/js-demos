@@ -31,26 +31,26 @@ These are some very loosely organized experiments, for the purpose of improving 
 
 Here's an equally loose index of what can be viewed online:
 
-[WebGL Video Cube](js-demos/fathers.html)
+[WebGL Video Cube](fathers.html)
 (Projection of HTML5 video onto a WebGL Cube with deformed normals)
 <br /><br /><br /><br />
 
-![Visualizer+Video](js-demos/fathers.png)
-[Visualizer (+VIDEO) ](js-demos/happy-b-day.html)
+![Visualizer+Video](images/fathers.png)
+[Visualizer (+VIDEO) ](happy-b-day.html)
 (Exploration of music visualization, adding real-time compositing of HTML5 video)
 <br /><br /><br /><br />
 
 
-[FFT Simple ](js-demos/fft-simple.html)
+[FFT Simple ](fft-simple.html)
 (first try at music visualization using pre-analyzed fft data)
 
 
-[FFT More ](js-demos/fft.html)
+[FFT More ](fft.html)
 (continues exploration of music visualization using pre-analyzed fft data)
 
 
-![Visualizer+](js-demos/visualizer.png)
-[Visualizer (+input) ](js-demos/visualizer.html)
+![Visualizer+](images/visualizer.png)
+[Visualizer (+input) ](visualizer.html)
 (continues exploration of music visualization, adding mouse interaction)
 <br /><br /><br /><br />
 
@@ -66,14 +66,14 @@ Here's an equally loose index of what can be viewed online:
 <br /><br /><br /><br />
 
 
-![Koch Snowflake](js-demos/kochflake.png)
-[Koch Snowflake ](js-demos/kochflake.html)
+![Koch Snowflake](images/kochflake.png)
+[Koch Snowflake ](kochflake.html)
 (expansion of example from 'Canvas Pocket Reference' by D. Flanagan, 2011)
 <br /><br /><br /><br />
 
 
-![Gradient Example](js-demos/gradient.png)
-[Gradient ](js-demos/gradient.html)
+![Gradient Example](images/gradient.png)
+[Gradient ](gradient.html)
 (Gradient example converted to Canvas API from [Processing API](http://processing.org/examples/lineargradient.html) )
 <br /><br /><br /><br />
 <br /><br /><br /><br />
@@ -81,20 +81,20 @@ Here's an equally loose index of what can be viewed online:
 <br /><br /><br /><br />
 
 
-[MOV16 ](js-demos/mov16.html)
+[MOV16 ](mov16.html)
 (output shows up in console; an emulation of an assembly MOV opperation on a 16-bit microprocessor)
 
-[Range2 Class ](js-demos/class.html)
+[Range2 Class ](class.html)
 (based on example from 'JavaScript Pocket Reference' by D. Flanagan, 2012)
 
-[Try 'this' ](js-demos/this.html)
+[Try 'this' ](this.html)
 (comparing use of 'this' v.s. vars within methods; partially based on code from 'JavaScript Enlightenment' by C. Lindley, 2012)
 
 
 <div id="stream" style="display:none; text-align:center">
-<video id="aud1" poster="js-demos/images/fathers.jpg" preload="auto" muted="true" controls="true">
-<source src="js-demos/video/fathers.mp4" />
-<source src="js-demos/video/fathers.ogv" />
+<video id="aud1" poster="images/fathers.jpg" preload="auto" muted="true" controls="true">
+<source src="video/fathers.mp4" />
+<source src="video/fathers.ogv" />
 </video>
 
 <h1 id="text_title" style="display:none;">Fathers</h1>
@@ -139,4 +139,4 @@ As your heart demands
 <em>These demos by <a href="mailto:john@real-currents.com">John</a> are licensed under the <a href="http://creativecommons.org/licenses/by-sa/3.0/nz/deed.en_GB">Creative Commons Attribution-ShareAlike 3.0 License, 2009-2020</a></em>
 </p>
 
-<script type="text/javascript" id="fathersSrc" src="js-demos/scripts/inner-video-cube.js"></script>
+<script type="text/javascript" id="fathersSrc" src="scripts/inner-video-cube.js"></script>
