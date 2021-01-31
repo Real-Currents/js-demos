@@ -3,6 +3,7 @@ title: JS Demos
 author: John
 date: '2020-07-05'
 draft: false
+always_allow_html: true
 categories:
   - Demos
   - Portfolio
