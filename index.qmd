@@ -19,8 +19,6 @@ format:
   gfm:
     variant: +yaml_metadata_block
 navbar: false
-theme:
-  dark: darkly
 ---
 
 js-demos
