@@ -18,6 +18,9 @@ tags:
 format:
   gfm:
     variant: +yaml_metadata_block
+navbar: false
+theme:
+  dark: darkly
 ---
 
 
@@ -27,7 +30,7 @@ format:
 
 <div style="text-align: center; min-width: 800px; margin-left: -86px; min-height: 480px;">
 
-<a id="aud1_play" href="js-demos/#" onclick="(function(evt) { window.document.getElementById('fathers').style = 'image-rendering: optimizespeed !important; position: fixed; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none'; evt.target.innerHTML='Now Playing'; evt.target.onclick = null; window.userTriggered=true; window.playVideo(); }) (event || window.event)">Play</a>
+<a id="aud1_play" href="#" onclick="(function(evt) { window.document.getElementById('fathers').style = 'image-rendering: optimizespeed !important; position: fixed; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none'; evt.target.innerHTML='Now Playing'; evt.target.onclick = null; window.userTriggered=true; window.playVideo(); }) (event || window.event)">Play</a>
 <canvas id="fathers" width="1280" height="720" style="image-rendering: optimizespeed !important; width: 100%;">
 </canvas>
 
