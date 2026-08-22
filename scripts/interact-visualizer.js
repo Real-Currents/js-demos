@@ -17,7 +17,26 @@ statsBox.innerHTML = ( location.pathname.match(/(\.html)/)!==null )?
 	'<img src="images/bw-loader.gif" /><br />Loading... ':
 	'<img src="js-demos/images/bw-loader.gif" /><br />Loading... ';
 
-var canvasApp = function canvasApp(cv) {
+function canvas2dAlpha(canvas) {
+	return canvas.getContext('2d', { alpha: true });
+}
+
+function canvasAlphaClear(ctx, w, h) {
+	ctx.globalCompositeOperation = 'source-over';
+	ctx.globalAlpha = 1;
+	ctx.clearRect(0, 0, w, h);
+}
+
+var canvasApp = function canvasApp(cv, options) {
+
+	if (typeof options === 'number') {
+		options = { width: options, height: arguments[2] };
+	}
+	options = options || {};
+	if (options.width != null) canvasApp.width = options.width;
+	if (options.height != null) canvasApp.height = options.height;
+
+	console.log("canvasApp:", cv);
 
 	/* START Global Vars */
 	window.audio = window.aud1;
@@ -45,9 +64,9 @@ var canvasApp = function canvasApp(cv) {
     window.addEventListener('keydown', function(event) {
         if(!event) var event = window.event; // cross-browser shenanigans
         if(event.keyCode === 32) { // this is the spacebar
+            event.preventDefault();
             if( window.audio.paused ) window.audio.play();
             else window.audio.pause();
-            event.preventDefault();
         }
         return true; // treat all other keys normally;
     });
@@ -60,13 +79,17 @@ var canvasApp = function canvasApp(cv) {
                         cv;
 
 	Debugger.log( "Using canvas '"+ canvas.id +"'\n" );
-	canvas.id = "layer1";
+	// canvas.id = "layer1";
 	canvas.alt = "Interactive Audio Visualizer";
 	canvas.src = (location.pathname.match(/(\.html)/) !== null)?
         "visualizer.png":
 	   "http://"+ window.location.host +"/js-demos/visualizer.png";
-	canvas.width = canvas.width || "1024";
-	canvas.height = canvas.height || "576";
+	var width = canvasApp.width != null ? canvasApp.width :
+		(cv && cv.width) || canvasApp.defaults.width;
+	var height = canvasApp.height != null ? canvasApp.height :
+		(cv && cv.height) || canvasApp.defaults.height;
+	canvas.width = width;
+	canvas.height = height;
 	canvas.setAttribute( 'onmouseover', 'canvasApp.mouseOver=true;' );
 	canvas.setAttribute( 'onmouseout', 'clearInterval(canvasApp.mouseEvent);canvasAppmouseOver=false;' );
 	canvas.setAttribute( 'onmousemove', 'canvasApp.colorChange(event);' );
@@ -158,7 +181,7 @@ if(! fftReady ) {
 	} else if( fftProgress.length > 9 ) {
 		fftReady = true;
 		statsBox.parentNode.removeChild(statsBox);
-		setTimeout(function(){ audio.play(); }, 3333);
+		// setTimeout(function(){ audio.play(); }, 3333);
 	} else {
 		return appDelay = setTimeout(canvasApp, 333, canvasApp.cv);
 	}
@@ -225,16 +248,20 @@ if( appStarted ) return appStarted;
 	var bCanvas = document.createElement('canvas');
 	aCanvas.width = bCanvas.width = w>>2; //aBuffer[0].length;
 	aCanvas.height = bCanvas.height = canvas.height;
-	var actx = canvasApp.actx = aCanvas.getContext('2d');
-	var bctx = canvasApp.bctx = bCanvas.getContext('2d');
-	//audio.play();
+	var actx = canvasApp.actx = canvas2dAlpha(aCanvas);
+	var bctx = canvasApp.bctx = canvas2dAlpha(bCanvas);
+	canvasAlphaClear(actx, aCanvas.width, aCanvas.height);
+	canvasAlphaClear(bctx, bCanvas.width, bCanvas.height);
+	// audio.play();
 
   /* Draw main function */
 
   function draw (ctx, w, h) {
 
 	var actx = canvasApp.actx,
-        bctx = canvasApp.bctx;
+        bctx = canvasApp.bctx,
+        halfW = w >> 1,
+        seamOverlap = 2;
 
     function drawPictures (context, pictures) {
         var pidx = 0,
@@ -278,28 +305,44 @@ if( appStarted ) return appStarted;
 
         /* Draw video input, if any */
         if( window.canvasApp.canDrawVideo === true ) try {
-            var cCanvas = document.createElement('canvas');
-            var cctx = cCanvas.getContext('2d');
+            var regionW = w >> 1,
+                regionH = h,
+                cCanvas = document.createElement('canvas'),
+                cctx = canvas2dAlpha(cCanvas);
 
-            cCanvas.width = canvas.width/2;
-            cCanvas.height = canvas.height;
-            cctx.globalAlpha = 1.0
+            cCanvas.width = regionW;
+            cCanvas.height = regionH;
+            cctx.globalAlpha = 1.0;
 
-			var vx = cCanvas.width - video.videoWidth/2;
-            var vw = 3 * (video.videoHeight/canvas.height * canvas.width) / 2;
-            var vh = cCanvas.height;
-            if ( (video != null) && (video.readyState > 2) && (!video.paused) )
-                cctx.drawImage(video, vx/2, 0, vw, vh);
+            if ( video != null && video.readyState > 2 && !video.paused ) {
+                var srcW = video.videoWidth,
+                    srcH = video.videoHeight;
+                if ( srcW > 0 && srcH > 0 ) {
+                    var videoAspect = srcW / srcH,
+                        regionAspect = regionW / regionH,
+                        drawW, drawH, dx, dy;
+                    if ( videoAspect > regionAspect ) {
+                        drawW = regionW;
+                        drawH = regionW / videoAspect;
+                        dx = 0;
+                        dy = (regionH - drawH) / 2;
+                    } else {
+                        drawH = regionH;
+                        drawW = regionH * videoAspect;
+                        dx = (regionW - drawW) / 2;
+                        dy = 0;
+                    }
+                    cctx.drawImage(video, 0, 0, srcW, srcH, dx, dy, drawW, drawH);
+                }
+            }
 
             ctx.globalAlpha = 1.0;
             ctx.save();
-            ctx.drawImage(cCanvas, 0, 0, cCanvas.width, canvas.height);
-//            setTimeout(function () {
-                ctx.translate(w, 0);
-                ctx.scale(-1, 1);
-                ctx.drawImage(cCanvas, 0, 0, cCanvas.width, canvas.height);
-                ctx.restore();
-//            }, 1);
+            ctx.drawImage(cCanvas, 0, 0, regionW, regionH, 0, 0, halfW + seamOverlap, regionH);
+            ctx.translate(w, 0);
+            ctx.scale(-1, 1);
+            ctx.drawImage(cCanvas, 0, 0, regionW, regionH, 0, 0, halfW + seamOverlap, regionH);
+            ctx.restore();
 
 //            cctx.drawImage(aCanvas, 1, 2, (w>>2)-1, h-4);
 //            cctx.fillStyle = "rgba(0%,0%,0%,0.005)";
@@ -342,11 +385,11 @@ if( appStarted ) return appStarted;
                   graphSamples(actx, audio, aBuffer, fBuffer, vBuffer, aidx, w, h, o);
             }
             ctx.globalAlpha = 1.0;
-            ctx.drawImage(aCanvas, 0, 0, (w>>1), h);
+            ctx.drawImage(aCanvas, 0, 0, halfW + seamOverlap, h);
             ctx.save();
             ctx.translate(w, 0);
             ctx.scale(-1, 1);
-            ctx.drawImage(aCanvas, 0, 0, (w>>1), h);
+            ctx.drawImage(aCanvas, 0, 0, halfW + seamOverlap, h);
             ctx.restore();
 
             bctx.drawImage(aCanvas, 1, 2, (w>>2)-1, h-4);
@@ -392,6 +435,10 @@ if( appStarted ) return appStarted;
 		ctx.fillText(title, 64, 128);
 		if( (aidx > 1500) && (aidx < 3500) ) for(var i=0, z=copy.length; i<z; i++)
 			ctx.fillText(copy[i], w>>1, (2500 - aidx) + (i*20) );
+	}
+
+	if (canvas.uploadToCube && typeof canvas.uploadToCube === 'function') {
+		canvas.uploadToCube();
 	}
 
 	time++;
@@ -510,7 +557,8 @@ if( appStarted ) return appStarted;
 
   /* Begin draw loop */
   try {
-    var context = canvas.getContext('2d');
+    var context = canvas2dAlpha(canvas);
+    canvasAlphaClear(context, canvas.width, canvas.height);
     time = 0;
     drawLoop = setInterval(draw, 31, context, canvas.width, canvas.height);
     Debugger.log("Draw loop started");
@@ -521,6 +569,8 @@ if( appStarted ) return appStarted;
     return;
   }
 };
+
+canvasApp.defaults = { width: 1024, height: 576 };
 
 canvasApp.updateFFT = function(prog) { setTimeout( function(prog) {
   fftProgress[prog] = true;
