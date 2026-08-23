@@ -138,6 +138,6 @@ As your heart demands
 <em>These demos by <a href="mailto:john@real-currents.com">John</a> are
 licensed under the
 <a href="http://creativecommons.org/licenses/by-sa/3.0/nz/deed.en_GB">Creative
-Commons Attribution-ShareAlike 3.0 License, 2009-2020</a></em>
+Commons Attribution-ShareAlike 3.0 License, 2009-2026</a></em>
 </p>
 <script type="text/javascript" id="fathersSrc" src="scripts/inner-video-cube.js"></script>

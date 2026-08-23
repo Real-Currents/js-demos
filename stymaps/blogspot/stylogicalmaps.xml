@@ -1488,7 +1488,7 @@ head.appendChild(script);
 
   &lt;/div&gt;&lt;/div&gt; &lt;!-- end outer-wrapper --&gt;
 
-&lt;p id='license' style='text-align:center;'&gt;Published 2009-2020 Creative Commons Attribution-NonCommercial-ShareAlike 2.5 Canada &lt;a href='http://creativecommons.org/licenses/by-nc-sa/2.5/deed.en' target='_blank'&gt;(CC BY-NC-SA 2.5)&lt;/a&gt;&lt;/p&gt;
+&lt;p id='license' style='text-align:center;'&gt;Published 2009-2026 Creative Commons Attribution-NonCommercial-ShareAlike 2.5 Canada &lt;a href='http://creativecommons.org/licenses/by-nc-sa/2.5/deed.en' target='_blank'&gt;(CC BY-NC-SA 2.5)&lt;/a&gt;&lt;/p&gt;
 
 &lt;script src='http://uni-sol.ca/js-demos/jsgif/LZWEncoder.js' type='text/javascript'/&gt;
 &lt;script src='http://uni-sol.ca/js-demos/jsgif/NeuQuant.js' type='text/javascript'/&gt;
