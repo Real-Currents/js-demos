@@ -36,8 +36,7 @@ section#js-demos {
 }
 section#js-demos > h1:first-of-type {
   height: 450px !important;
-  min-height: 450px;
-  max-height: 450px;
+  min-height: 480px;
   aspect-ratio: unset;
   width: 100vw;
   max-width: 100vw;
@@ -64,52 +63,12 @@ section#js-demos > p > img {
     clear: both;
     display: block;
 }
-</style>
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-3a28914e972e565866d67e9b9be564da.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
+section#js-demos > * > canvas:first-of-type {
+  display: block !important;
+  image-rendering: optimizespeed !important;
+}
+</style>
 
 
 <link rel="stylesheet" href="../../src/app/globals.css">
@@ -171,8 +130,8 @@ section#js-demos > p > img {
 
 <section id="js-demos" class="level1">
 <h1 style="text-align: center; margin-bottom: 0; position: relative; box-sizing: border-box;">
-<a id="aud1_play" href="#" onclick="(function(evt) { window.document.getElementById('f').style.cssText = 'image-rendering: optimizespeed !important; position: fixed; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none'; evt.target.innerHTML='Now Playing'; evt.target.onclick = null; playVideo(); aud1.currentTime=0; aud1.muted=false; userTriggered=true; setTimeout(function() { canvasApp(window.document.getElementById('cv'), { width: 1024, height: 1024 }); }, 33); }) (event || window.event);">Play</a>
-<canvas id="f" width="1280" height="720" style="image-rendering: optimizespeed !important; width: 100%; height: 100%; display: block;">
+<a id="aud1_play" href="#" onclick="(function(evt) { window.document.getElementById('f').style.cssText = 'position: fixed; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none'; evt.target.innerHTML='Now Playing'; evt.target.onclick = null; playVideo(); aud1.currentTime=0; aud1.muted=false; userTriggered=true; setTimeout(function() { canvasApp(window.document.getElementById('cv'), { width: 1024, height: 1024 }); }, 33); }) (event || window.event);">Play</a>
+<canvas id="f" width="1280" height="720" style="image-rendering: optimizespeed !important; width: 100%; height: 100%; display: none;">
 </canvas>
 </h1>
 <br>

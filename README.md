@@ -26,25 +26,26 @@ navbar: false
 
 <br />
 
-<div style="text-align: center; min-width: 800px; margin-left: -86px; min-height: 480px;">
-
-<a id="aud1_play" href="#" onclick="(function(evt) { window.document.getElementById('fathers').style = 'image-rendering: optimizespeed !important; position: fixed; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none'; evt.target.innerHTML='Now Playing'; evt.target.onclick = null; window.userTriggered=true; window.playVideo(); }) (event || window.event)">Play</a>
-<canvas id="fathers" width="1280" height="720" style="image-rendering: optimizespeed !important; width: 100%;">
+<h1 style="text-align: center; margin-bottom: 0; position: relative; box-sizing: border-box;">
+<a id="aud1_play" href="#" onclick="(function(evt) { window.document.getElementById('f').style.cssText = 'position: fixed; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none'; evt.target.innerHTML='Now Playing'; evt.target.onclick = null; playVideo(); aud1.currentTime=0; aud1.muted=false; userTriggered=true; setTimeout(function() { canvasApp(window.document.getElementById('cv'), { width: 1024, height: 1024 }); }, 33); }) (event || window.event);">Play</a>
+<canvas id="f" width="1280" height="720" style="image-rendering: optimizespeed !important; width: 100%; height: 100%; display: none;">
 </canvas>
-
-</div>
+</h1>
 
 These are some very loosely organized experiments, for the purpose of
 improving my understanding.
 
 Here’s an equally loose index of what can be viewed online:
 
-[WebGL Video Cube](fathers.html) (Projection of HTML5 video onto a WebGL
-Cube with deformed normals) <br /><br /><br /><br />
+<video id="aud1" poster="images/fathers.jpg" preload="auto" muted="true" controls="true" style="height:450px">
+<source src="video/fathers.mp4" />
+<source src="video/fathers.ogv" />
+</video>
 
-![Visualizer+Video](images/fathers.png) [Visualizer
-(+VIDEO)](happy-b-day.html) (Exploration of music visualization, adding
-real-time compositing of HTML5 video) <br /><br /><br /><br />
+[WebGL Video Cube](electric-fathers.html) (Projection of HTML5 video 
+and music visualization onto a WebGL Cube with deformed normals) <br /><br /><br /><br />
+
+![Visualizer+Video](images/fathers.png) [Visualizer(+VIDEO)](happy-b-day.html) (Exploration of music visualization, adding real-time compositing of HTML5 video) <br /><br /><br /><br />
 
 [FFT Simple](fft-simple.html) (first try at music visualization using
 pre-analyzed fft data)
@@ -89,10 +90,6 @@ Lindley, 2012)
 
 <div id="stream" style="display:none; text-align:center">
 
-<video id="aud1" poster="images/fathers.jpg" preload="auto" muted="true" controls="true">
-<source src="video/fathers.mp4" />
-<source src="video/fathers.ogv" />
-</video>
 <h1 id="text_title" style="display:none;">
 Fathers
 </h1>

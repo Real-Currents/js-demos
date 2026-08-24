@@ -31,8 +31,7 @@ include-before-body:
     }
     section#js-demos > h1:first-of-type {
       height: 450px !important;
-      min-height: 450px;
-      max-height: 450px;
+      min-height: 480px;
       aspect-ratio: unset;
       width: 100vw;
       max-width: 100vw;
@@ -59,12 +58,17 @@ include-before-body:
         clear: both;
         display: block;
     }
+
+    section#js-demos > * > canvas:first-of-type {
+      display: block !important;
+      image-rendering: optimizespeed !important;
+    }
     </style>
 ---
 
 <h1 style="text-align: center; margin-bottom: 0; position: relative; box-sizing: border-box;">
-<a id="aud1_play" href="#" onclick="(function(evt) { window.document.getElementById('f').style.cssText = 'image-rendering: optimizespeed !important; position: fixed; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none'; evt.target.innerHTML='Now Playing'; evt.target.onclick = null; playVideo(); aud1.currentTime=0; aud1.muted=false; userTriggered=true; setTimeout(function() { canvasApp(window.document.getElementById('cv'), { width: 1024, height: 1024 }); }, 33); }) (event || window.event);">Play</a>
-<canvas id="f" width="1280" height="720" style="image-rendering: optimizespeed !important; width: 100%; height: 100%; display: block;">
+<a id="aud1_play" href="#" onclick="(function(evt) { window.document.getElementById('f').style.cssText = 'position: fixed; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none'; evt.target.innerHTML='Now Playing'; evt.target.onclick = null; playVideo(); aud1.currentTime=0; aud1.muted=false; userTriggered=true; setTimeout(function() { canvasApp(window.document.getElementById('cv'), { width: 1024, height: 1024 }); }, 33); }) (event || window.event);">Play</a>
+<canvas id="f" width="1280" height="720" style="image-rendering: optimizespeed !important; width: 100%; height: 100%; display: none;">
 </canvas>
 </h1>
 
@@ -75,7 +79,7 @@ These are some very loosely organized experiments, for the purpose of improving 
 Here's an equally loose index of what can be viewed online:
 
 [WebGL Video Cube](electric-fathers.html)
-(Projection of HTML5 video onto a WebGL Cube with deformed normals)
+(Projection of HTML5 video and music visualization onto a WebGL Cube with deformed normals)
 <br /><br /><br /><br />
 
 ![Visualizer+Video](images/fathers.png)
